@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Piškvorky jako školní projekt.">
+    <meta name="keywords" content="projekt, spse, skola, web, piskvorky, javascript">
+    <meta name="author" content="Filip Čížek">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <title>Projekt</title>
+</head> 
+<body>
+    <noscript style="text-align:center;">AKTIVUJTE JAVASCRIPT PRO SPRÁVNÉ FUNGOVÁNÍ STRÁNKY!</noscript>
+    <header id="header" onmouseover="mouseOver('overout')" onmouseout="mouseOut('overout')">
+        <h1>ŠKOLNÍ PROJEKT</h1>
+        <p id="overout">Filip Čížek, 1.G</p>
+        <div onclick="window.open('https://www.youtube.com/watch?v=iik25wqIuFo')" style="cursor: pointer;">.</div>
+    </header>
+    <section class="tabs">
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'Piskvorky')" id="defaultOpen">PIŠKVROKY</button>
+            <button class="tablinks" onclick="openTab(event, 'PiskvorkyAI')">UMĚLÁ INTELIGENCE</button>
+            <button class="tablinks" onclick="openTab(event, 'Zdroje')">ZDROJE</button>
+        </div>
+          
+        <div id="Piskvorky" class="tabcontent" style="display: block;">
+            <h3>PIŠKVROKY</h3>
+            <p>Pro závěrečnou práci jsem si připravil jednoduchou hru v JavaScriptu. Konkrétně se jedná o <strong>Piškvorky</strong>. Na výběr jsou dva způsoby hraní - s <strong>kamarádem</strong> nebo s <strong>umělou inteligencí</strong>. Layout piškvorek moc nefunguje ve FireFox prohlížeči.</p>
+        </div>
+          
+        <div id="PiskvorkyAI" class="tabcontent">
+            <h3>UMĚLÁ INTELIGENCE PIŠKVOREK</h3>
+            <p>Umělá inteligence, která hraje proti vám v Piškvorkách funguje na <strong>Minimax</strong> algoritmu. Tento algoritmus je určen především pro hry jako <strong>piškvorky</strong> a <strong>šachy</strong>, kde je důležité "vidět" dopředu a analyzovat všechny možné ukončení hry. Podle toho určí nejvhodnější pole, kam umístí svůj tah.</p>
+        </div>
+          
+        <div id="Zdroje" class="tabcontent">
+            <h3>ODKUD JSEM ČERPAL INFORMACE?</h3>
+            <p>Informace o HTML, CSS a JavaScriptu jsem čerpal z webu <a href="https://www.w3schools.com/">w3schools.com</a>, o Minimax algoritmu zase z webu <a href="https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/">geeksforgeeks.org</a>.</p>
+        </div>
+    </section>
+    <section class="middle">
+        <h3>JAK HRÁT?</h3>
+        <div class="columns">
+            <div id="left">
+                <h4>PROTI KAMARÁDOVI</h4>
+                <p>První hráč položí křížek na hrací pole a po něm následuje druhý. Hráči se střídají do té doby, dokud je hra nezastaví a nezobrazí se výsledek.</p>
+            </div>
+            <div id="right">
+                <h4>PROTI POČÍTAČI</h4>
+                <p>První tah učiníte vy, po vás hraje umělá intelignece. Hra končí, až se určí nějaký výsledek.</p>
+            </div>
+        </div>
+    </section>
+    <!--Layout piškvorek funguje NEJLÉPE pouze v Google Chrome-->
+    <div class="game">
+        <div>
+            <button onclick="restart()" id="restart" style="display: none;">HRÁT ZNOVU</button>
+        </div>
+        <div id="checkbox__form">
+            HRÁT S UMĚLOU INTELIGENCÍ
+            <!--Vlastní checkbox-->
+            <div class="checkbox" id="activateAI" onclick="checkboxAI()"></div>
+        </div>
+        <div class="row">
+            <button onclick="play('A1')" id="A1"></button>
+            <button onclick="play('A2')" id="A2"></button>
+            <button onclick="play('A3')" id="A3"></button>
+        </div>
+        <div class="row">
+            <button onclick="play('B1')" id="B1"></button>
+            <button onclick="play('B2')" id="B2"></button>
+            <button onclick="play('B3')" id="B3"></button>
+        </div>
+        <div class="row">
+            <button onclick="play('C1')" id="C1"></button>
+            <button onclick="play('C2')" id="C2"></button>
+            <button onclick="play('C3')" id="C3"></button>
+        </div>
+        <div class="scoreTable">
+            <div class="player__X">
+                <img src="img/arrow.png" class="arrow" id="arrow__X">
+                <img src="img/krizek.png" class="player__img">
+                <p id="score__X">0</p>
+            </div>
+            <p>:</p>
+            <div class="player__O">
+                <p id="score__O">0</p>
+                <img src="img/kolecko.png" class="player__img">
+                <img src="img/arrow.png" class="arrow" id="arrow__O" style="transform: rotate(180deg); opacity: 0;">
+            </div>
+        </div>
+        <p id="winner"></p>
+    </div>
+    <section class="kontakt">
+        <h3>NAPIŠTE MI!</h3>
+        <p>Máte dotaz, nabídku nebo si chcete jen pokecat? Pak máte jedinečnou možnost mi napsat pomocí tohoto krásného formuláře!</p>
+    </section>
+    <section class="form">
+        <form name="kontakt">
+            <label for="fname">JMÉNO A PŘÍJMENÍ</label><br>
+            <input type="text" name="name" id="input"><br>
+            <label for="email">E-MAIL</label><br>
+            <input type="email" name="email" id="input" onchange="validateEmail()"><br>
+            <label for="zprava">ZPRÁVA</label><br>
+            <textarea id="zprava" name="zprava"></textarea><br>
+            <input type="button" name="zprava" id="tlacitko" value="ODESLAT" onclick="vypsat();rgb();">
+        </form>
+        <p id="vypis"></p>
+    </section>
+    <footer>
+        <button onclick="window.open('')" id="sourcecode">ZOBRAZIT ZDROJOVÝ KÓD</button>
+        <p>Vytvořil Filip Čížek, žák Střední průmyslové školy elektronické v Plzni.</p>
+        <p>cizekf@spseplzen.cz</p>
+        <p id="datum">Datum</p>
+    </footer>
+    <script src="piskvorky.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

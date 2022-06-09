@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    transition: 0.3s;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+header {
+    width: 100%;
+    height: 300px;
+    background-color: rgb(50, 60, 60);
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+}
+
+header h1 {
+    color: aliceblue;
+    font-weight: 800;
+    font-size: 40px;
+}
+
+header p {
+    color: aliceblue;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.image {
+    display: none;
+    width: 100%;
+    height: 200px;
+    vertical-align: middle;
+}
+
+.slideshow {
+    position: relative;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+}
+
+#winner {
+    color: rgb(50, 60, 60);
+    font-weight: 800;
+    font-size: 20px;
+    margin: 10px;
+}
+
+#checkbox__form {
+    color: rgb(50, 60, 60);
+    font-weight: 700;
+    font-size: 20px;
+    margin: 10px auto;
+}
+
+.checkbox {
+    position: relative;
+    float: right;
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    border: 2px solid rgb(50, 60, 60);
+    margin: 3.5px 10px;
+    cursor: pointer;
+}
+
+.checkbox:hover {
+    background-color: rgba(50, 60, 60, 0.3);
+}
+
+.player__X, .player__O {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 77.5px;
+}
+
+.scoreTable {
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 155px;
+    height: 30px;
+    background-color: rgba(50, 60, 60, 0.7);
+    
+    border-radius: 10px;
+}
+
+.player__img {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    margin: auto 5px ;
+}
+
+.arrow {
+    position: relative;
+    width: 10px;
+    height: 10px;
+}
+
+button {
+    background-color: rgba(50, 60, 60, 0.7);
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 0;
+    width: 120px;
+    height: 30px;
+    margin: 5px;
+    color: #fff;
+}
+
+#restart:hover {
+    background-color: rgba(50, 60, 60, 0.9);
+}
+
+.row button {
+    background-color: #323c3c;
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 50px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 3px;
+}
+
+.row button:hover {
+    background-color: rgba(50, 60, 60, 0.9);
+}
+
+button img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#currentPlayer {
+    text-align: center;
+}
+
+.tabs {
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #323c3c;
+}
+
+.tabs h3 {
+    color: #323c3c;
+    padding-top: 20px;
+}
+
+.tab {
+    display: flex;
+}
+
+.tab button {
+    background-color: rgba(50, 60, 60, 0.7);
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 0;
+    width: 150px;
+    height: 50px;
+    margin: 5px;
+    color: #fff;
+}
+
+.tab button:hover {
+    background-color: rgba(50, 60, 60, 0.9);
+}
+
+.tab button.active {
+    background-color: rgb(50, 60, 60);
+}
+
+.tabcontent {
+    display: none;
+    text-align: center;
+    padding: 0 25%;
+}
+
+.middle {
+    background-color: rgb(50, 60, 60);
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+    color: rgba(240, 248, 255, 0.6);
+    text-align: center;
+    padding: 50px 15%;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    align-content: flex-start;
+    width: 100%;
+}
+
+#left, #right {
+    width: 320px;
+}
+
+h3 {
+    color: aliceblue;
+    font-weight: 800;
+    font-size: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+h4 {
+    color: rgba(240, 248, 255, 0.881);
+    font-weight: 800;
+    font-size: 25px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.kontakt {
+    background-color: rgb(50, 60, 60);
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+    color: rgba(240, 248, 255, 0.6);
+    text-align: center;
+    padding: 50px 25%;
+}
+
+.form {
+    color: #323c3c;
+    padding: 50px 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 800;
+}
+
+#input {
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #323c3c2a;
+    padding: 5px;
+    color: #323c3cae;
+    margin: 5px;
+}
+
+#zprava {
+    width: 300px;
+    height: 200px;
+    border: none;
+    border-radius: 10px;
+    background-color: #323c3c2a;
+    padding: 5px;
+    color: #323c3cae;
+    resize: none;
+    margin: 5px;
+}
+
+#tlacitko {
+    background-color: rgba(50, 60, 60, 0.7);
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 0;
+    width: 100%;
+    height: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#tlacitko:hover {
+    background-color: rgba(50, 60, 60, 0.9);
+}
+
+#vypis {
+    padding: 0 20%;
+    padding-top: 40px;
+    text-align: center;
+}
+
+footer {
+    background-color: rgb(50, 60, 60);
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3), 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+    color: #ffffff27;
+    font-weight: 700;
+    text-align: center;
+    padding: 30px 15%;
+}
+
+footer p {
+    padding: 5px;
+}
+
+#sourcecode {
+    background-color: rgba(240, 248, 255, 0.7);
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3), 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+    font-weight: 800;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 0;
+    width: 250px;
+    height: 30px;
+    color: #323c3c;
+    cursor: pointer;
+}
+
+#sourcecode:hover {
+    background-color: rgba(240, 248, 255, 0.4);
+}
